@@ -8,10 +8,6 @@ cd filebeat-8.11.4-linux-x86_64 || { echo "Error: Unable to change to the Filebe
 #screen -S filebeat-screen || { echo "Error: Unable to create a screen session for Filebeat."; exit 1; }
 echo "Provide absolute log path:"
 read -r logpath
-if [ ! -d "$logpath" ]; then
-    echo "Error: The provided log path '$logpath' does not exist."
-    exit 1
-fi
 sed -i "s|<logpath>|$logpath|g" modules.d/system.yml || { echo "Error: Unable to update system.yml with the provided log path."; exit 1; }
 sudo ./filebeat -e -c filebeat.yml || { echo "Error: Unable to start Filebeat with the updated configuration."; exit 1; }
 exit 0
