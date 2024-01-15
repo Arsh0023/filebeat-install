@@ -5,7 +5,7 @@ cd /home/ec2-user || { echo "Error: Unable to change to the home directory."; ex
 wget https://devops-tookan.s3.ap-south-1.amazonaws.com/filebeatInstall.zip || { echo "Error: Unable to download Filebeat installation zip."; exit 1; }
 unzip filebeatInstall.zip || { echo "Error: Unable to unzip the Filebeat installation zip."; exit 1; }
 cd filebeat-8.11.4-linux-x86_64 || { echo "Error: Unable to change to the Filebeat directory."; exit 1; }
-screen -S filebeat-screen || { echo "Error: Unable to create a screen session for Filebeat."; exit 1; }
+#screen -S filebeat-screen || { echo "Error: Unable to create a screen session for Filebeat."; exit 1; }
 echo "Provide absolute log path:"
 read -r logpath
 if [ ! -d "$logpath" ]; then
