@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ps aux | grep -E 'filebeat' | awk '{print $2}' | while read -r l; do kill -9 $l;done
+#ps aux | grep -E 'filebeat' | awk '{print $2}' | while read -r l; do kill -9 $l;done
 cd /home/ec2-user || { echo "Error: Unable to change to the home directory."; exit 1; }
 wget https://devops-tookan.s3.ap-south-1.amazonaws.com/filebeatInstall.zip || { echo "Error: Unable to download Filebeat installation zip."; exit 1; }
 unzip filebeatInstall.zip || { echo "Error: Unable to unzip the Filebeat installation zip."; exit 1; }
